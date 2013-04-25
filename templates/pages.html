@@ -1,0 +1,25 @@
+$def with (titles,cur_page,pages)
+<div class="header box">
+    <h1>$:markdown(u'[任务跟踪](/)')</h1>
+</div>
+<div class='box'>
+    <h2>显示全部</h2>
+    <div class="box todos">
+        $for title in titles:
+        <ul>
+            <li>
+                $title.title
+            </li>
+        </ul>
+
+    <div class="totalylist">
+        $for page in range(1,pages+1):
+            $if int(cur_page) == int(page):
+                <a href="/pages/$page" class="cur">$page</a>
+            $elif abs(int(cur_page)-page)>5:
+                $pass
+            $else:
+                <a href="/pages/$page" style="margin: 2px">$page</a>
+    </div>
+
+</div>

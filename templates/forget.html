@@ -1,0 +1,15 @@
+$def with (msg)
+$var title:找回密码
+<div class="header box">
+    <h1>$:markdown(u'[任务跟踪](/)')</h1>
+</div>
+<div class="box post">
+    <h2>找回密码</h2>
+    <form action="" method="post">
+        <p><input type="text" placeholder="请输入您的账号" name="username" maxlength="100" width="100%" value="" /></p>
+        <p><input type="text" placeholder="请输入您的邮箱" name="email" maxlength="100" width="100%"  value="" /></p>
+        <input type="submit" class="submit" value="提交" />
+        $if msg:
+            <span class="error">$:msg</span>
+    </form>
+</div>

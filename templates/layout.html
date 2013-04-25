@@ -1,0 +1,25 @@
+$def with (content)
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link href="/static/style.css" rel="stylesheet" type="text/css" />
+    <link href="/static/reset.css" rel="stylesheet" type="text/css" />
+    $if 'title' in content and content.title:
+        <title>$content.title</title>
+    $else:
+        <title>任务管理</title>
+</head>
+<body>
+<div class="page">
+    <div class="link" style="text-align: right">
+        $if ('token' in cookie()) or session.get('auth') != 0:
+            $:markdown(u'[注销](/logout)  [首页](/)  [显示全部](/pages/)')
+        $else:
+            <h5>$:markdown(u'[登录](/login) [注册](/register)')</h5>
+    </div>
+    $:content
+</div>
+
+</body>
+</html>

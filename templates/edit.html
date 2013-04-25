@@ -1,0 +1,13 @@
+$def with (todo)
+$var title:修改
+<div class="header box">
+    <h1>$:markdown(u'[任务跟踪](/)')</h1>
+</div>
+<div class="box post">
+    <h2>修改</h2>
+    <form action="" method="post">
+        <p><input type="text" name="title" class="long_txt" value="$todo.title" /></p>
+        <input type="submit" class="submit" value="提交" />
+        </p>
+    </form>
+</div>

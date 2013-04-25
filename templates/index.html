@@ -1,0 +1,37 @@
+$def with (todolist,errormsg)
+<div class="header box">
+    <h1>$:markdown(u'[任务跟踪](/)')</h1>
+</div>
+<div class='box'>
+    <h2>待处理项</h2>
+    <div class="box todos">
+        <ul>
+            $for todo in todolist
+                $if todo.finished == 1:
+                    $ classname = 'class="finished"'
+                $else:
+                    $ classname = ''
+                <li $:classname>
+                    $if todo.finished == 1:
+                        <del>$todo.title </del>&nbsp;&nbsp;
+                        <a href="/finish/$todo.id?status=0">恢复</a>
+                    $if todo.finished == 0:
+                        $todo.title &nbsp;&nbsp;
+                        <a href="/finish/$todo.id?status=1">完成</a>
+                    <a href="/edit/$todo.id">修改</a>
+                    <a href="/del/$todo.id" onclick="return confirm('删除以后不能恢复的，确定？')">删除</a>
+                </li>
+        </ul>
+    <div class="box post">
+        <h2>新增</h2>
+        <form action="/" method="post" id="post_new">
+            <p><input type="text" class="long_txt" name="title"  /></p>
+            <p><input type="submit" class="submit" value="添加" />
+                $if errormsg:
+                    <span>$errormsg</span>
+            </p>
+        </form>
+    </div>
+    </div>
+</div>
+

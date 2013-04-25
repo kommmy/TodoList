@@ -1,0 +1,34 @@
+$def with (cur_user,error=None)
+$var title:登录
+$if cur_user:
+    <h3>$cur_user 注册成功请登录！</h3>
+<h2 class="title">登录</h2>
+<form method="post" action="">
+    <dl>
+        <dt><label>帐号:</label></dt>
+        <dd>
+            <input placeholder="请输入您的用户名" type="text" name="username"  id="username" value="" />
+        </dd>
+    </dl>
+    <dl>
+        <dt><label for="password">密码:</label></dt>
+        <dd>
+            <input placeholder="请输入您的密码" type="password" id="password" name="password" autocomplete="off"/>
+            <a class="forgetPwd" id="forgetPwd" href="/forget" target="_blank">忘记密码？</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt><label title="下次会自动登录"></label></dt>
+        <dd>
+            <input type="checkbox" name="autoLogin" id="autoLogin" value="true"/><span class="auto">下次自动登录</span>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <input type="submit" id="login" class="submit" name="submit" value="确定" style="width:163px"/><span class="error">$:error</span>
+        </dt>
+    </dl>
+</form>
+
+
+
